@@ -1,35 +1,35 @@
-const { Schema } = require('mongoose')
+import {Schema} from 'mongoose'
 
 const UserSchema = new Schema({
-  UserId: {
+  id: {
     type:String,
     required:true
    }, //유저 ID
-  UserPassword: {
+  password: {
     type:String,
     required:true
    }, //유저 비밀번호
-  UserName: {
+  name: {
     type:String,
     required:true
    }, //유저 이름
-  UserAddress: {
+  address: {
     type:String,
     required:true
    }, // 유저 주소
-  UserPhone: {
+  phone: {
     type:Number,
     required:true
    }, // 유저 전화번호
-  UserEmail: {
+  email: {
     type:String,
     required:true
    }, //유저 이메일
-  UserBirth: {
+  birth: {
     type:Number,
     required:true
    }, //유저 생일
-  OrderList: Number //유저 주문내역
+  orderList: Number //유저 주문내역
 },{timestamps: true})
 
-module.exports = { UserSchema };
+export {UserSchema};
