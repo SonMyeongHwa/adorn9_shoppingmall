@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const { Router } = require('express');
 const { Product, Order } = require('../models');
 const asyncHandler = require('../utils/async-handler');
