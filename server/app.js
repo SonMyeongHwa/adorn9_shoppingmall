@@ -1,5 +1,3 @@
-import {createRequire} from 'module'
-const require = createRequire(import.meta.url)
 const express = require('express');
 const mongoose = require('mongoose');
 const productRouter = require('./routes/productRouter');
@@ -18,7 +16,7 @@ app.use(express.json());
 app.use('/api/v1/products', productRouter);
 
 app.use('/', (req,res) => {
-    res.send('ok');
+    res.send('oka');
 });
 
 const PORT = process.env.PORT;
