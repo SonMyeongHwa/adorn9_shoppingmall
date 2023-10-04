@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
 const productRouter = require('./routes/productRouter');
+const orderRouter = require('./routes/orderRouter');
 require('dotenv').config();
 
 const MongoURL = process.env.MONGO_URL;
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/orders', orderRouter);
 
 app.use('/', (req,res) => {
     res.send('ok');
