@@ -1,5 +1,11 @@
 @import "/client/src/common/reset.css";
 
+.my-page-wrap {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
 header {
 	width: 100%;
 	background-color: #edcfc4;
@@ -7,16 +13,27 @@ header {
 	display: flex;
 	align-items: center;
 	padding: 50px;
+	margin-bottom: 50px;
 }
 
 header strong {
-	font-size: 24px;
+	font-size: 28px;
+}
+
+.my-page-main {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
 }
 
 aside {
-	background: firebrick;
-	padding: 30px;
-	width: 200px;
+	flex-basis: 20%;
+	/* background-color: darkcyan; */
+}
+
+aside h2 {
+	font-size: 24px;
+	margin-bottom: 25px;
 }
 
 aside ul {
@@ -31,5 +48,31 @@ aside a {
 
 aside li {
 	list-style: none;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.payment-details {
+}
+
+.payment-details {
+	flex-basis: 70%;
+}
+
+h3 {
+	font-size: 20px;
+	margin-bottom: 25px;
+}
+
+.payment-item {
+	background-color: #fff;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	padding: 25px;
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+}
+
+.payment-product img {
+	width: 50px;
 }
