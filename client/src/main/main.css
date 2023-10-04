@@ -1,6 +1,5 @@
+@import "/shopping_project_9team/client/src/common/reset.css";
 .nav-bar {
-	background-color: beige;
-
 	display: flex;
 	justify-content: space-between;
 
