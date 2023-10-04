@@ -1,4 +1,4 @@
-import {Schema} from 'mongoose'
+const {Schema} = require ('mongoose');
 
 const UserSchema = new Schema({
   id: {
@@ -27,9 +27,8 @@ const UserSchema = new Schema({
    }, //유저 이메일
   birth: {
     type:Number,
-    required:true
    }, //유저 생일
   orderList: Number //유저 주문내역
 },{timestamps: true})
 
-export {UserSchema};
+module.exports = {UserSchema};
