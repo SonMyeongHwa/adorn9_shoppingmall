@@ -1,0 +1,68 @@
+@import "../common/reset.css";
+
+nav {
+	width: 100%;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	border-bottom: 1px solid #d9d8d7;
+	box-sizing: border-box;
+}
+.nav-wrap {
+	display: flex;
+	flex-direction: row;
+	/* background-color: firebrick; */
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+}
+
+.nav-wrap a {
+	margin: 0;
+}
+
+.nav-wrap img {
+	width: 100px;
+}
+
+.utils {
+	display: flex;
+	color: #939697;
+	font-weight: 300;
+}
+
+.utils li {
+	margin: 0 5px;
+}
+
+.utils li:hover,
+.utils li:active {
+	color: #000;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+.categories-wrap {
+	width: 80%;
+	display: flex;
+	margin-left: 25px;
+	/* margin-bottom: 20px; */
+	box-sizing: border-box;
+	overflow-y: hidden;
+}
+
+.categories-wrap li {
+	margin: 0 10px;
+	font-size: 22px;
+	font-weight: 300;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid transparent;
+}
+
+.categories-wrap li:hover {
+	border-bottom: 1px solid #be3455;
+	color: #be3455;
+}
