@@ -7,3 +7,4 @@ const productRouter = require('./productRouter');
 router.get('/v1/products', productRouter);
 
 module.exports = router;
+
