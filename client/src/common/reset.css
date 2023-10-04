@@ -1,3 +1,5 @@
-* {
-  background-color: #FBF7F2;
+body {
+	background-color: #fbf7f2;
+	box-sizing: border-box;
+	width: 1420px;
 }
