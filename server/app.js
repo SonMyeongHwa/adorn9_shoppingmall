@@ -1,5 +1,7 @@
 const express = require('express');
+const cors = require('cors')
 const mongoose = require('mongoose');
+const productRouter = require('./routes/productRouter');
 require('dotenv').config();
 
 const MongoURL = process.env.MONGO_URL;
@@ -10,7 +12,14 @@ mongoose.connection.on('connected', () => {
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
+
+app.use('/api/v1/products', productRouter);
+
+app.use('/', (req,res) => {
+    res.send('ok');
+});
 
 const PORT = process.env.PORT;
 
