@@ -1,0 +1,35 @@
+@import "/client/src/common/reset.css";
+
+header {
+	width: 100%;
+	background-color: #edcfc4;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	padding: 50px;
+}
+
+header strong {
+	font-size: 24px;
+}
+
+aside {
+	background: firebrick;
+	padding: 30px;
+	width: 200px;
+}
+
+aside ul {
+	margin: 0;
+	padding: 0;
+}
+
+aside a {
+	text-decoration: none;
+	color: #000;
+}
+
+aside li {
+	list-style: none;
+	margin-bottom: 10px;
+}
