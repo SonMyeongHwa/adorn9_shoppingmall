@@ -7,7 +7,8 @@
 }
 .nav-bar-category {
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: row;
+	align-items: end;
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
@@ -19,13 +20,13 @@
 .nav-bar-logo img {
 	width: 200px;
 	height: 210px;
-
 	margin-left: 160px;
 }
 
 .nav-bar-feature {
 	display: flex;
 	justify-content: space-between;
+	align-items: end;
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
@@ -33,8 +34,10 @@
 .login,
 .my-page,
 .basket {
+	width: 0px;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: row;
+	align-items: end;
 	padding: 0 14px;
 }
 
@@ -47,4 +50,10 @@
 .slides img {
 	width: 100%;
 	height: 450px;
+}
+
+.thumb-bnner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
