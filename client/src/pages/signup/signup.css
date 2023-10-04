@@ -51,6 +51,10 @@ input::placeholder {
   border: none;
 }
 
+.dropdown-item {
+  background-color: #fff;
+}
+
 .btn-primary {
   margin-top: 30px;
 }
