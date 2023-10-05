@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const { CategorySchema } = require('./schemas/category');
 const { OrderSchema } = require('./schemas/order');
 const { ProductSchema } = require('./schemas/product');
