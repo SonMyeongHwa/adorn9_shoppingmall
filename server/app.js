@@ -2,14 +2,14 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
 
+const loginRouter = require('./routes/loginRouter');
 const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter')
 const orderRouter = require('./routes/orderRouter');
+const errorHandler = require('./middlewares');
 
 const session = require('express-session');
 const passport = require('passport'); 
-
-
 
 require('dotenv').config();
 
@@ -43,8 +43,10 @@ app.use('/api/v1/orders', orderRouter);
 app.use('/users', loginRouter); 
 
 app.use('/', (req,res) => {
-    res.send('oka');
+    res.send('ok');
 });
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT;
 
