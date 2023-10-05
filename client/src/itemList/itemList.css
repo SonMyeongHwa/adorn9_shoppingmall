@@ -1,4 +1,4 @@
-@import "/shopping_project_9team/client/src/common/reset.css";
+@import "../../../client/src/common/reset.css";
 
 h1 {
   font-size: 24px;
@@ -51,7 +51,7 @@ a:hover {
   border: 1px solid #EDCFC4;
   position: absolute;
   left: 5px;
-  top: 207px;
+  top: 209px;
   width: 250px;
   border-radius: 0;
 }
