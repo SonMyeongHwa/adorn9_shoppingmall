@@ -1,17 +1,23 @@
 const passport = require('passport');
-require('./strategies/local'); // 로컬 전략 불러오기
+const { User } = require('../models');
+const local = require('./strategies/local');
 
-passport.serializeUser((user, done) => {
+module.exports = () => {
+  passport.use(local);
+
+  passport.serializeUser((user, done) => {
     done(null, user.id);
-});
+  });
 
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (err) {
-    done(err, null);
-  }
-});
-
-module.exports = passport;
+  passport.deserializeUser(async (id, done) => {
+    try {
+      const user = await User.findOne({ id });
+      if (!user) {
+        return done(null, false);
+      }
+      done(null, user);
+    } catch (err) {
+      done(err, null);
+    }
+  });
+}
