@@ -3,7 +3,8 @@ const {User} =require ('../models');
 const asyncHandler = require('../utils/async-handler');
 const hashPassword = require('../utils/hash-password')
 // const telCheck = require('../services/telCheck')
-const checker = require('../services/usermodule')
+const formCheck = require('../services/formCheck')
+const check = require('../services/check')
 const router = Router();
 
 
@@ -17,12 +18,11 @@ router.post('/', asyncHandler(async (req,res)=>{
     // const mailCheck = await User.findOne(email)
      const hashedPassword = hashPassword(password)//비밀번호 해쉬화
 
-    checker.telCheck(phone);
-    checker.mailformCheck(email)
-     if(id.length<3){throw new Error('아이디는 4글자 이상으로 설정해주세요.')}
+    // checker.telCheck(phone);
+    // checker.mailformCheck(email)
+    formCheck.check(id,password,email,phone)
     const mailcheck = await User.findOne({email})//중복 이메일 체크 변수
      if(mailcheck) {throw new Error('이미 가입된 이메일입니다.')} //중복 이메일 체크
-     if(password.length<8) {throw new Error('비밀번호는 8글자 이상 입력해주세요')}//비번 자릿수 체크
      
    const user = await User.create({
       id,

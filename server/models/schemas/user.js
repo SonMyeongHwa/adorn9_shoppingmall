@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     required:true
    }, // 유저 주소
   phone: {
-    type:Number,
+    type:String,
     required:true
    }, // 유저 전화번호
   email: {
