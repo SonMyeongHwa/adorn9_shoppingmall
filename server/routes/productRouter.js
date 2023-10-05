@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { Product, Category } = require('../models');
 const asyncHandler = require('../utils/async-handler');
+const { productService } = require('../services');
 
 const router = Router();
 
@@ -14,16 +15,15 @@ router.get('/', asyncHandler(async (req, res) => {
   });
 }));
 
+// 메인 페이지 상품 조회(임시)
+router.get('/main', asyncHandler(async (req, res) => {
+  res.send('main page');
+}));
+
 // 특정 상품 조회. 요청 URI : GET ~~/api/v1/products/:상품id
 router.get('/:id', asyncHandler(async (req, res) => {
   const productId = req.params.id;
-  const product = await Product.findOne({_id : productId});
-  if(!product){
-    return res.status(404).json({
-      status: 404,
-      msg: `해당 id를 가진 상품이 존재하지 않습니다`,
-    })
-  }
+  const product = await productService.getProductById(productId);
   return res.status(200).json({
     status: 200,
     msg: `id:${productId} 상품 검색 결과`,
@@ -31,37 +31,36 @@ router.get('/:id', asyncHandler(async (req, res) => {
   });
 }));
 
+// 카테고리 + 페이지네이션. 요청 URI : GET ~~/api/v1/products/category?category=ring&page=1
+router.get('/category', asyncHandler(async (req, res) => {
+  const { category, page } = req.query;
+  const list = await Category.find({ category });
+}));
+
 // 카테고리로 검색. 요청 URI : GET ~~/api/v1/products/category/necklace
-router.get('/category/:category', asyncHandler(async (req, res) => {
+router.get('/category/:category', asyncHandler(async (req, res, next) => {
   const categoryName = req.params.category;
-  if(categoryName){
-    const categoryCol = await Category.findOne({ name: categoryName });
-    if(categoryCol){
-      const products = await Product.find({ category:categoryCol._id })
-      if(products){
-        return res.status(200).json({
-          status:200,
-          msg: `${categoryName}으로 검색결과`,
-          products,
-        });
-      }else{
-        return res.status(404).json({
-          status:404,
-          msg: `${categoryName}에 상품이 없습니다`
-        })
-      }
-    }else{
-      return res.status(404).json({
-        status:404,
-        msg: "존재하지 않는 카테고리입니다",
-      })
-    }
-  }else{
-    return res.status(400).json({
-      status:400,
-      msg: "검색내용을 확인해주세요",
-    })
+
+  const categoryCol = await Category.findOne({ name: categoryName });
+
+  if(!categoryCol){
+    const err = new Error("존재하지 않는 카테고리입니다.");
+    err.status = 404;
+    next(err);
   }
+
+  const products = await Product.find({ category:categoryCol._id })
+  if(!products){
+    const err = new Error("상품이 존재하지 않습니다.");
+    err.status = 404;
+    next(err);
+  }
+
+  return res.status(200).json({
+    status:200,
+    msg: `${categoryName}으로 검색결과`,
+    products,
+  });
 }));
 
 module.exports = router;
