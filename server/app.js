@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
 const productRouter = require('./routes/productRouter');
+
+const userRouter = require('./routes/userRouter')
+
 const orderRouter = require('./routes/orderRouter');
 require('dotenv').config();
 
@@ -17,10 +20,11 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/v1/products', productRouter);
+app.use('/users', userRouter)
 app.use('/api/v1/orders', orderRouter);
 
 app.use('/', (req,res) => {
-    res.send('ok');
+    res.send('oka');
 });
 
 const PORT = process.env.PORT;
