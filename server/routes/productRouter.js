@@ -42,7 +42,7 @@ router.get('/category/:category', asyncHandler(async (req, res) => {
         return res.status(200).json({
           status:200,
           msg: `${categoryName}으로 검색결과`,
-          products: products,
+          products,
         });
       }else{
         return res.status(404).json({

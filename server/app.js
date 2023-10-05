@@ -3,11 +3,14 @@ const cors = require('cors')
 const mongoose = require('mongoose');
 
 const productRouter = require('./routes/productRouter');
+const userRouter = require('./routes/userRouter')
+const orderRouter = require('./routes/orderRouter');
 
 const session = require('express-session');
 const passport = require('passport'); 
-const loginRouter = require('./routes/loginRouter'); // 로그인 라우터 불러오기
-//const bodyParser = require('body-parser');
+
+
+
 require('dotenv').config();
 
 const MongoURL = process.env.MONGO_URL;
@@ -33,12 +36,14 @@ app.use(passport.session());
 //app.use(bodyParser.json());
 
 app.use('/api/v1/products', productRouter);
+app.use('/users', userRouter)
+app.use('/api/v1/orders', orderRouter);
 
 // 나중에 userRouter로 합치게 될 것 같아서 일단 path만 /users로 변경해놨습니다..!
 app.use('/users', loginRouter); 
 
 app.use('/', (req,res) => {
-    res.send('ok');
+    res.send('oka');
 });
 
 const PORT = process.env.PORT;
