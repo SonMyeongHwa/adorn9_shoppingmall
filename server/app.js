@@ -34,7 +34,7 @@ app.use(passport.session());
 
 app.use('/api/v1/products', productRouter);
 
-// 로그인 라우터 추가
+// 나중에 userRouter로 합치게 될 것 같아서 일단 path만 /users로 변경해놨습니다..!
 app.use('/users', loginRouter); 
 
 app.use('/', (req,res) => {
