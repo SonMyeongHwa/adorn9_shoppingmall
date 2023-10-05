@@ -35,8 +35,16 @@
       src="https://kit.fontawesome.com/f9572620f9.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <title>adorn9</title>
   </head>
+
   <body>
       <nav class="nav-bar">
         <div class="nav-bar-category">
@@ -93,27 +101,110 @@
       <div id="slider">
         <ul class="slides">
             <li class="slide"><img src="" alt=""></li>
-            <li class="slide"><img src="" alt=""></li>
-            <li class="slide"><img src="" alt=""></li>
-            <li class="slide"><img src="" alt=""></li>
-            <li class="slide"><img src="" alt=""></li>
-            <li class="slide"><img src="" alt=""></li>
+            <!-- <li class="slide"><img src="" alt=""></li> -->
+            <!-- <li class="slide"><img src="" alt=""></li> -->
+            <!-- <li class="slide"><img src="" alt=""></li> -->
+            <!-- <li class="slide"><img src="" alt=""></li> -->
+            <!-- <li class="slide"><img src="" alt=""></li> -->
         </ul>
     </div>
     <main class="main-container">
       <div class="thumb-bnner">
-         <h3>
+         <h1>
           new edition
-         </h3>
+         </h1>
          <p>
-          모시깽이
+          에디션 설명 && 에디션 묘사 문구
          </p>
         </div>
 
-      <div class="thumb-bnner-list">
-
-      </div>
+        <section class="thumb-bnner-list">
+          <div class="item-wrap">
+            <div class="item-list">
+              <div class="item-content">
+                <div class="image">
+                  <a href=""><img src="" alt=""></a>
+                  <button class="btn btn-primary btn-lg">장바구니</button>
+                </div>
+                <a href="">
+                  <div class="description">
+                    <div class="name">제품명</div>
+                    <div class="price">50,000</div>
+                  </div>
+                </a>
+              </div>
+              <div class="item-content">
+                <div class="image">
+                  <a href=""><img src="" alt=""></a>
+                  <button class="btn btn-primary btn-lg">장바구니</button>
+                </div>
+                <a href="">
+                  <div class="description">
+                    <div class="name">제품명</div>
+                    <div class="price">50,000</div>
+                  </div>
+                </a>
+              </div>
+              <div class="item-content">
+                <div class="image">
+                  <a href=""><img src="" alt=""></a>
+                  <button class="btn btn-primary btn-lg">장바구니</button>
+                </div>
+                <a href="">
+                  <div class="description">
+                    <div class="name">제품명</div>
+                    <div class="price">50,000</div>
+                  </div>
+                </a>
+              </div>
+              <div class="item-content">
+                <div class="image">
+                  <a href=""><img src="" alt=""></a>
+                  <button class="btn btn-primary btn-lg">장바구니</button>
+                </div>
+                <a href="">
+                  <div class="description">
+                    <div class="name">제품명</div>
+                    <div class="price">50,000</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       
+        <section class="slide-section">
+          <div class="high-group">
+            <div class="silde-section-text">
+              <h2>
+                <button type="button" class="today-btn" tabindex="0" role="button" >#today</button>
+                <button type="button" class="myStyle-btn" tabindex="0" role="button" >#my style</button>
+              </h2>
+            </div>
+      
+            <div class="slide-control">
+              <button type="button" class="btnPrev" tabindex="0" role="button" aria-label="Previous slide"><span class="ir"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="42" height="42"><path d="m8.854 11.646 5.792-5.792a.5.5 0 0 1 .854.353v11.586a.5.5 0 0 1-.854.353l-5.792-5.792a.5.5 0 0 1 0-.708Z"></path></svg></span></button>
+              <button type="button" class="btnNext" tabindex="0" role="button" aria-label="Next slide"><span class="ir"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="42" height="42"><path d="m15.146 12.354-5.792 5.792a.5.5 0 0 1-.854-.353V6.207a.5.5 0 0 1 .854-.353l5.792 5.792a.5.5 0 0 1 0 .708Z"></path></svg></span></button>
+          </div>
+          </div>
+          
+          <div class="silde-item-container">
+            <ul class="silde-items-wrapper">
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              <li><a href=""><img src="" alt=""></a></li>
+              
+            </ul>
+          </div>
+          <div class="swiper-pagination progressbar swiper-pagination-progressbar"><span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.1) scaleY(1); transition-duration: 400ms;"></span></div>
+          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </section>
+        
     </main>
 
     <div id="app"></div>
