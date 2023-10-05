@@ -6,6 +6,8 @@ const router = Router();
 
 
 router.get('/' ,asyncHandler(async(req,res)=>{
+  const userProfile = await User.find({})
+  res.send(userProfile)
   res.send('okaaa')
 }))
 
@@ -14,7 +16,7 @@ router.post('/join', asyncHandler(async (req,res)=>{
 
     // const mailCheck = await User.findOne(email)
     //  const hashedPassword = hashPassword(password)
-    const user = await User.create({
+   const user = await User.create({
       id,
       // password: hashedPassword,
       password,
@@ -23,7 +25,7 @@ router.post('/join', asyncHandler(async (req,res)=>{
       address,
       phone
       })
-    res.send(email)
+    res.set(user)
     // res.redirect('/')
 }))
 
