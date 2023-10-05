@@ -1,6 +1,7 @@
 const { Router } = require('express');
-const { Product, Order } = require('../models');
+const { Order } = require('../models');
 const asyncHandler = require('../utils/async-handler');
+const { orderService } = require('../services');
 
 const router = Router();
 
@@ -15,33 +16,21 @@ const router = Router();
     "name": "홍길동",
     "items": [
         {
-            "item":"651c4339bd2105949994c4b1",
+            "item":"엘리베이션 링",
             "quantity": 3
         }
     ],
     "address":"대한민국",
-    "phoneNum":"01012345678"
+    "phoneNumber":"01012345678"
 }
 */
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { name, items, address, phoneNum } = req.body;
-    let totalPrice = 0;
-    for(const obj of items){
-        const objPrice = await Product.findOne({_id:obj.item});
-        const itemPrice = obj.quantity * objPrice.get('price');
-        totalPrice += itemPrice;
-    }
-    const data = {
-        items,
-        total_price: totalPrice,
-        user_name: name,
-        address,
-        phone_number: phoneNum,
-        status: "상품준비중",
-    }
+    const { name, items, address, phoneNumber } = req.body;
+    
+    const newOrder = await orderService.saveOrder( name, items, address, phoneNumber );
 
-    const newOrder = await Order.create(data);
+    console.log(newOrder);
 
     return res.status(201).json({
         status:201,
@@ -51,6 +40,7 @@ router.post('/', asyncHandler(async (req, res) => {
     })
 }));
 
+// (서비스로옮겨야함)
 router.get('/:orderId', asyncHandler(async (req, res) => {
     const orderId = req.params.orderId;
     const order = await Order.findOne({ _id : orderId });
@@ -68,6 +58,7 @@ router.get('/:orderId', asyncHandler(async (req, res) => {
     }
 }));
 
+// (서비스로옮겨야함)
 router.delete('/:orderId', asyncHandler(async (req, res) => {
     const orderId = req.params.orderId;
     const order = await Order.findOne({ _id : orderId });

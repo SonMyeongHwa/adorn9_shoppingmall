@@ -7,13 +7,20 @@ class ProductService {
     }
 
     // 한 페이지에 표시할 물품 개수를 바꿀 경우
-    setPerPage(num){
+    setPerPage(num) {
         this.perPage = num;
         return;
     }
 
+    // 전체 상품 조회
+    async getProducts() {
+        const products = await Product.find({});
+
+        return products;
+    }
+
     // 카테고리 검색 결과에 페이지네이션 적용 
-    async getCategoryitemPage(category ,page) {
+    async getCategoryProductsPage(category ,page) {
         const perPage = this.perPage;
         const skipCount = (Number(page)-1)*perPage;
           
@@ -39,6 +46,16 @@ class ProductService {
         }
 
         return product;
+    }
+
+    async getCategoryProducts(category) {
+        const categoryCollection = await Category.findOne({ name: category });
+
+        if(!categoryCollection){
+            throw new Error("존재하지 않는 카테고리입니다.");
+        }
+
+        return categoryCollection;
     }
 }
 
