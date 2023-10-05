@@ -28,6 +28,9 @@ const UserSchema = new Schema({
   birth: {
     type:Number,
    }, //유저 생일
+   joindate:{
+    type:Number
+   },
   orderList: Number //유저 주문내역
 },{timestamps: true})
 
