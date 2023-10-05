@@ -1,0 +1,67 @@
+@import "../../../client/src/common/reset.css";
+
+h1 {
+	font-size: 24px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-weight: 400;
+}
+
+.serv-list {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.order-wrap {
+	max-width: 1100px;
+	margin: auto;
+}
+
+div[class$="-info"] {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group input {
+	border: none;
+  border-bottom: 1px solid #bfbebe;
+  border-radius: 0;
+}
+
+.required {
+  color: red;
+}
+
+.address input, .btn {
+	margin-bottom: 5px;
+}
+
+.row-item {
+	display: inline-block;
+}
+
+input[type=radio] {
+  accent-color:#be3455;
+}
+
+.btn-primary {
+  background-color: #EDCFC4;
+  border: 1px solid #EDCFC4;
+  height: 50px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #be3455;
+  border: 1px solid #be3455;
+}
+
+.btn-primary:active {
+  background-color: #be3455;
+  border: 1px solid #be3455;
+}
