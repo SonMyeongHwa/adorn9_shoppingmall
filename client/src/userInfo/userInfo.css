@@ -57,7 +57,7 @@ input::placeholder {
 	margin-top: 200px;
 	border: none;
 	color: grey;
-	background-color: none;
+	background-color: transparent;
 }
 
 .info-wrap {
