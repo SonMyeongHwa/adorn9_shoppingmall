@@ -43,23 +43,24 @@ router.put('/', asyncHandler(async(req,res)=>{
   // const id = req.body.id
    //중복 이메일 체크
      if(password.length<8) {throw new Error('비밀번호는 8글자 이상 입력해주세요')}
-  User.findOneAndUpdate({email},{
+
+  const updateUser =await User.updateOne({email},{
     password:hashPassword(req.body.password),
     name:req.body.name,
     address:req.body.address,
     phone:req.body.phone,
     email:req.body.email,
-    }).exec().then((updateUser)=>
-  res.status(200).send({status:200, msg:'개인정보가 수정됐습니다',updateUser}))
-  
+    })
+
+    
+  res.status(200).send({status:200, msg:'개인정보가 수정됐습니다'})
 }))
 
 //회원 탈퇴
 router.delete('/',asyncHandler(async(req,res)=>{
-  const deleteEmail = req.body.email
-  await User.deleteOne({deleteEmail})
-  res.status(204).send({status:204, msg:'탈퇴가 완료됐습니다.'})
-
+  const {email,name} = req.body
+  await User.deleteOne({email})
+  return res.status(200).send({status:200, msg:`${name}님의 탈퇴가 완료됐습니다.`})
 }))
 
 
