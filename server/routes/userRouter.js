@@ -25,7 +25,7 @@ router.post('/', asyncHandler(async (req,res)=>{
      if(mailcheck) {throw new Error('이미 가입된 이메일입니다.')} //중복 이메일 체크
      
    const user = await User.create({
-      id,
+    id,
       password: hashedPassword,
       name,
       address,
@@ -39,20 +39,20 @@ router.post('/', asyncHandler(async (req,res)=>{
 
 //마이 프로필
 router.post('/profile' ,asyncHandler(async(req,res)=>{
-  const viewkey = req.body.id
-  const Profile = await User.findOne({id:viewkey})
+  const viewkey = req.body.email
+  const Profile = await User.findOne({email:viewkey})
   res.status(200).send({status:200,Profile})
 }))
 
 //유저 수정
 router.put('/', asyncHandler(async(req,res)=>{
   
-  const {id,password,name,address,phone,email} = req.body
+  const {password,name,address,phone,email} = req.body
   // const id = req.body.id
   const mailcheck = await User.findOne({email})
       if(mailcheck) {throw new Error('이미 존재하는 이메일입니다.')} //중복 이메일 체크
      if(password.length<8) {throw new Error('비밀번호는 8글자 이상 입력해주세요')}
-  User.findOneAndUpdate({id},{
+  User.findOneAndUpdate({email},{
     password:hashPassword(req.body.password),
     name:req.body.name,
     address:req.body.address,
@@ -65,8 +65,8 @@ router.put('/', asyncHandler(async(req,res)=>{
 
 //회원 탈퇴
 router.delete('/',asyncHandler(async(req,res)=>{
-  const deid = req.body.id
-  await User.deleteOne({id:deid})
+  const deleteEmail = req.body.email
+  await User.deleteOne({deleteEmail})
   res.status(204).send({status:204, msg:'탈퇴가 완료됐습니다.'})
 
 }))

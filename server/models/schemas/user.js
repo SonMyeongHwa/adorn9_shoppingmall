@@ -32,6 +32,6 @@ const UserSchema = new Schema({
     type:Number
    },
   orderList: Number //유저 주문내역
-},{timestamps: true})
+},{timestamps: {createdAt:'가입일자'}})
 
 module.exports = {UserSchema};

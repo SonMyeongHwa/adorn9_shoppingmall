@@ -1,14 +1,12 @@
 
-exports.checker = (id,password,email,phone) =>{
-  const idRE = /^[a-z]+[a-z0-9]{5,19}$/g
+exports.check = (id,password,email,phone) =>{
   const passRE = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/
   const emailRE = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
   const phoneRE1 = /^\d{3}-\d{4}-\d{4}$/
   const phoneRE2 = /^\d{11}$/
   
-  if(!idRE.test(id)){
-    throw new Error('ID 작성 양식을 준수해주세요.')
-  }//ID는 알파벳으로 시작하고 알파벳 혹은 숫자 6~20자로 제한
+  
+  //ID는 알파벳으로 시작하고 알파벳 혹은 숫자 6~20자로 제한
   if(!passRE.test(password)){
     throw new Error('비밀번호 작성 양식을 준수해주세요.')
   }//비밀번호는 8~16자에 알파벳,숫자,특수문자가 하나씩 포함돼야함
