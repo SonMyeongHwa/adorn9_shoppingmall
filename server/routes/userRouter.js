@@ -9,28 +9,6 @@ const router = Router();
 
 
 
-
-//회원가입
-/**
- * @swagger
- *  /product:
- *    get:
- *      tags:
- *      - product
- *      description: 모든 제품 조회
- *      produces:
- *      - application/json
- *      parameters:
- *        - in: query
- *          name: category
- *          required: false
- *          schema:
- *            type: integer
- *            description: 카테고리
- *      responses:
- *       200:
- *        description: 제품 조회 성공
- */
 router.post('/', asyncHandler(async (req,res)=>{
     const {password,name,address,phone,email}=req.body;
      const hashedPassword = hashPassword(password)//비밀번호 해쉬화
