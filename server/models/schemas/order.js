@@ -1,11 +1,15 @@
 const { Schema } = require('mongoose');
 
 const OrderSchema = new Schema({
+    ordered_user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
     items: [
         {
             item: {
-                type: Schema.Types.ObjectId, 
-                ref: "Product"
+                type: String, //상품이름
+                required: true,
             },
             quantity: Number,
         }
