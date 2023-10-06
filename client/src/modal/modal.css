@@ -43,7 +43,7 @@
 }
 
 .header-popup-close-btn {
-	right: 255px;
+	right: 16px;
 	position: absolute;
 	top: 32px;
 	overflow: hidden;
@@ -194,6 +194,11 @@ li {
 	align-items: center;
 	color: #131922;
 }
+.detail-top-price .original b {
+	font-size: 32px;
+	line-height: 38px;
+	letter-spacing: 0.4px;
+}
 
 .detail-top-info {
 	border-top: 1px solid #d8d3b5;
@@ -252,6 +257,13 @@ tr {
 .detail-top-info-amount .form-amount {
 	width: auto;
 }
+
+.form-amount {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	border: 1.5px solid #e0e0e0;
+}
 .form-amount--btn {
 	width: 46px;
 	height: 46px;
@@ -263,5 +275,85 @@ tr {
 	background-size: 24px;
 }
 .form-amount--btn--minus {
-	border-right: 1px solid #e0e0e0;
+	border-right: 1.5px solid #e0e0e0;
+}
+.form-amount--btn--plus {
+	border-left: 1.5px solid #e0e0e0;
+}
+
+.form-amount .form-amount--input {
+	width: calc(100% - 92px);
+	height: 46px;
+	border: none;
+	padding: 0;
+	text-align: center;
+	font-size: 14px;
+	letter-spacing: 0;
+	color: #141a23;
+}
+
+.detail-top-sum {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 28px 0 40px;
+	margin-top: 28px;
+	border-top: 1px solid #131922;
+}
+
+.detail-top-sum-title {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 24px;
+	letter-spacing: 0;
+}
+.detail-top-sum-price {
+	font-size: 16px;
+	line-height: 24px;
+}
+.detail-top-sum-price span {
+	font-size: 32px;
+	font-weight: bold;
+	line-height: 38px;
+	letter-spacing: 0.4px;
+}
+
+.detail-buy-btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0 5px;
+	margin-top: 20px;
+}
+.btn-wide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 2;
+	width: 100%;
+	height: 56px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #000;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.detail-buy-btn .btn-wide {
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.btn-mazenta {
+	background-color: #edcfc4;
+	border: 1px solid #edcfc4;
+	color: white;
+	height: 50px;
+}
+
+.btn-mazenta2 {
+	background-color: #be3455;
+	border: 1px solid #be3455;
+	color: white;
+	height: 50px;
 }
