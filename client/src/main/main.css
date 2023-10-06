@@ -1,4 +1,4 @@
-@import "/shopping_project_9team/client/src/common/reset.css";
+@import "../../../client/src/common/reset.css";
 
 .nav-bar {
 	display: flex;
