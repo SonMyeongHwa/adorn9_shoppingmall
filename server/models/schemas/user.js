@@ -1,10 +1,12 @@
 const {Schema} = require ('mongoose');
 
 const UserSchema = new Schema({
-  id: {
+  
+  email: {
     type:String,
-    required:true
-   }, //유저 ID
+    required:true,
+    unique:true
+   }, //유저 이메일
   password: {
     type:String,
     required:true
@@ -21,11 +23,6 @@ const UserSchema = new Schema({
     type:String,
     required:true
    }, // 유저 전화번호
-  email: {
-    type:String,
-    required:true,
-    unique:true
-   }, //유저 이메일
   birth: {
     type:Number,
    }, //유저 생일
