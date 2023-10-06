@@ -24,7 +24,11 @@ const UserSchema = new Schema({
   birth: {
     type:Number,
    }, //유저 생일
+   createdAt:{
+    type:Date,
+    default:new Date().toDateString()
+   },//가입일자
   orderList: [{ type: Schema.Types.ObjectId, ref: "Order" }], //유저 주문내역
-},{timestamps: true})
+})
 
 module.exports = {UserSchema};

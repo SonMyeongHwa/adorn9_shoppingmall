@@ -3,16 +3,36 @@ const {User} =require ('../models');
 const asyncHandler = require('../utils/async-handler');
 const hashPassword = require('../utils/hash-password')
 // const telCheck = require('../services/telCheck')
-const formCheck = require('../services/formCheck')
-const check = require('../services/check')
+const formCheck = require('../services/userService')
+const check = require('../services/userService')
 const router = Router();
 
 
 
 
 //회원가입
+/**
+ * @swagger
+ *  /product:
+ *    get:
+ *      tags:
+ *      - product
+ *      description: 모든 제품 조회
+ *      produces:
+ *      - application/json
+ *      parameters:
+ *        - in: query
+ *          name: category
+ *          required: false
+ *          schema:
+ *            type: integer
+ *            description: 카테고리
+ *      responses:
+ *       200:
+ *        description: 제품 조회 성공
+ */
 router.post('/', asyncHandler(async (req,res)=>{
-    const {id,password,name,address,phone,email}=req.body;
+    const {password,name,address,phone,email}=req.body;
      const hashedPassword = hashPassword(password)//비밀번호 해쉬화
     formCheck.check(password,email,phone)
     //중복 이메일 체크
@@ -38,7 +58,6 @@ router.post('/profile' ,asyncHandler(async(req,res)=>{
 router.put('/', asyncHandler(async(req,res)=>{
   
   const {password,name,address,phone,email} = req.body
-  // const id = req.body.id
    //중복 이메일 체크
      if(password.length<8) {throw new Error('비밀번호는 8글자 이상 입력해주세요')}
 
@@ -49,8 +68,6 @@ router.put('/', asyncHandler(async(req,res)=>{
     address:req.body.address,
     phone:req.body.phone,
     })
-
-    
   res.status(200).send({status:200, msg:'개인정보가 수정됐습니다'})
 }))
 

@@ -10,6 +10,7 @@ const errorHandler = require('./middlewares');
 
 const session = require('express-session');
 const passport = require('passport'); 
+const {swaggerUi,specs} = require('./utils/swagger')
 
 require('dotenv').config();
 
@@ -30,7 +31,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
   }));
-
+app.use('/api/docs',swaggerUi.serve, swaggerUi.setup(specs))
 app.use(passport.initialize());
 app.use(passport.session());
 //app.use(bodyParser.json());
