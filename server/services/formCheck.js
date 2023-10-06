@@ -1,11 +1,11 @@
 
-exports.check = (id,password,email,phone) =>{
+exports.check = (password,email,phone) =>{
   const passRE = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/
   const emailRE = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
   const phoneRE1 = /^\d{3}-\d{4}-\d{4}$/
   const phoneRE2 = /^\d{11}$/
   
-  
+ 
   //ID는 알파벳으로 시작하고 알파벳 혹은 숫자 6~20자로 제한
   if(!passRE.test(password)){
     throw new Error('비밀번호 작성 양식을 준수해주세요.')

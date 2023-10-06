@@ -23,7 +23,8 @@ const UserSchema = new Schema({
    }, // 유저 전화번호
   email: {
     type:String,
-    required:true
+    required:true,
+    unique:true
    }, //유저 이메일
   birth: {
     type:Number,

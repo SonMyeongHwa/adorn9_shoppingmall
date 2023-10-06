@@ -13,25 +13,17 @@ const router = Router();
 //회원가입
 router.post('/', asyncHandler(async (req,res)=>{
     const {id,password,name,address,phone,email}=req.body;
-    // const joindate = req.body.createdAt;
     console.log(req.body.createdAt)
-    // const mailCheck = await User.findOne(email)
      const hashedPassword = hashPassword(password)//비밀번호 해쉬화
-
-    // checker.telCheck(phone);
-    // checker.mailformCheck(email)
-    formCheck.check(id,password,email,phone)
-    const mailcheck = await User.findOne({email})//중복 이메일 체크 변수
-     if(mailcheck) {throw new Error('이미 가입된 이메일입니다.')} //중복 이메일 체크
-     
+    formCheck.check(password,email,phone)
+    //중복 이메일 체크
    const user = await User.create({
     id,
       password: hashedPassword,
       name,
       address,
       phone,
-      email,
-      // joindate
+      email
       })
     res.status(201).send({status:201,msg:`${name}님의 가입을 환영합니다.`,user})
     // res.redirect('/')
@@ -49,8 +41,7 @@ router.put('/', asyncHandler(async(req,res)=>{
   
   const {password,name,address,phone,email} = req.body
   // const id = req.body.id
-  const mailcheck = await User.findOne({email})
-      if(mailcheck) {throw new Error('이미 존재하는 이메일입니다.')} //중복 이메일 체크
+   //중복 이메일 체크
      if(password.length<8) {throw new Error('비밀번호는 8글자 이상 입력해주세요')}
   User.findOneAndUpdate({email},{
     password:hashPassword(req.body.password),
