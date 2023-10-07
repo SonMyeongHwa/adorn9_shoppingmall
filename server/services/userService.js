@@ -1,4 +1,6 @@
 
+
+//회원 가입과 정보 수정 시 제약 걸기
 exports.check = (password,email,phone) =>{
   const passRE = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/
   const emailRE = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
@@ -18,9 +20,3 @@ exports.check = (password,email,phone) =>{
   
 }
 
-//비밀번호 다시 입력
-
-//이메일 양식 검사 clear
-//전화번호 양식 검사 clear 
-
-//생년월일 형식 검사 
