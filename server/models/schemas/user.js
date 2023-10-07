@@ -1,10 +1,11 @@
-const { Schema } = require ('mongoose');
+const {Schema} = require ('mongoose');
 
 const UserSchema = new Schema({
+  
   email: {
     type:String,
     required:true,
-    unique: true
+    unique:true
    }, //유저 이메일
   password: {
     type:String,
@@ -14,17 +15,21 @@ const UserSchema = new Schema({
     type:String,
     required:true
    }, //유저 이름
-  phone: {
-    type:Number,
-    required:true
-   }, // 유저 전화번호
   address: {
     type:String,
-  }, // 유저 주소
+    required:true
+   }, // 유저 주소
+  phone: {
+    type:String,
+    required:true
+   }, // 유저 전화번호
   birth: {
     type:Number,
    }, //유저 생일
-  orderList: [{ type: Schema.Types.ObjectId, ref: "Order" }], //유저 주문내역
-},{timestamps: true})
+   joindate:{
+    type:Number
+   },
+  orderList: Number //유저 주문내역
+},{timestamps: {createdAt:'가입일자'}})
 
 module.exports = {UserSchema};
