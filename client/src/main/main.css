@@ -1,12 +1,12 @@
 @import "../../../client/src/common/reset.css";
 
-.nav-bar {
+.nav-span {
 	display: flex;
 	justify-content: space-between;
 
 	box-sizing: border-box;
 }
-.nav-bar-category {
+.nav-span-category {
 	display: flex;
 	flex-direction: row;
 	align-items: end;
@@ -18,13 +18,13 @@
 	background-color: transparent;
 	cursor: pointer;
 }
-.nav-bar-logo img {
+.nav-span-logo img {
 	width: 200px;
 	height: 210px;
 	margin-left: 210px;
 }
 
-.nav-bar-feature {
+.nav-span-feature {
 	display: flex;
 	justify-content: space-between;
 	align-items: end;
