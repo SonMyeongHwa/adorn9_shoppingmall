@@ -21,6 +21,11 @@ a:hover {
   color: black;
 }
 
+input[type=checkbox]:checked {
+  background-color:#be3455;
+  border-color: #be3455;
+}
+
 .serv-list {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -37,6 +42,7 @@ a:hover {
   align-items: flex-start;
   position: relative;
   margin-top: 30px;
+  gap: 20px;
 }
 
 .cart {
@@ -44,48 +50,13 @@ a:hover {
   width: 730px;
 }
 
-.cart-list-check {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 30px;
-  margin: 0 0 20px;
-}
-
 .all-item-check {
-  position: relative;
-  display: inline-block;
-  margin-right: 25px;
   line-height: 20px;
   cursor: pointer;
 }
 
 .btn-right {
-  margin-left: auto;
-}
-
-.cart-list {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #eee;
-}
-
-li {
-  list-style: none;
-}
-
-.cart-list li {
-  padding: 40px 0;
-  border-top: 1px solid #e4e4e4;
-}
-
-.item-row {
-  display: flex;
-  position: relative;
-}
-
-.cell {
-  display: flex;
-  flex-direction: column;
+  text-align: right;
 }
 
 .item-check {
@@ -93,21 +64,29 @@ li {
   justify-content: flex-start;
 }
 
-.item-image {
-  position: relative;
-  flex: none;
-  height: 133px;
+.table {
+  margin: 0px;
 }
 
-.item-image img {
+.table tr {
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.table thead tr {
+  border-bottom: 1px solid #000;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table .td-top {
+  vertical-align: top;
+}
+
+.table img {
   height: 130px;
   width: 130px;
-}
-
-.item-name {
-  flex: 1;
-  padding: 0 50px 0 20px;
-  justify-content: center;
 }
 
 .item-count {
@@ -121,6 +100,7 @@ li {
   align-items: center;
   width: 126px;
   border: 1px solid #eee;
+  background-color: white;
   box-sizing: border-box;
 }
 
@@ -138,17 +118,10 @@ li {
   padding: 5px 15px;
 }
 
-.item-price {
-  justify-content: center;
-  margin-left: 14px;
-  width: 113px;
-  text-align: right;
-}
-
 .price {
-  display: block;
   font-weight: 500;
   font-size: 14px;
+  text-align: right;
 }
 
 .num {

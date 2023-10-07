@@ -1,10 +1,11 @@
-const { Schema } = require ('mongoose');
+const {Schema} = require ('mongoose');
 
 const UserSchema = new Schema({
+  
   email: {
     type:String,
     required:true,
-    unique: true
+    unique:true
    }, //유저 이메일
   password: {
     type:String,
@@ -20,7 +21,12 @@ const UserSchema = new Schema({
    }, // 유저 전화번호
   address: {
     type:String,
-  }, // 유저 주소
+    required:true
+   }, // 유저 주소
+  phone: {
+    type:String,
+    required:true
+   }, // 유저 전화번호
   birth: {
     type:Number,
    }, //유저 생일
