@@ -38,11 +38,9 @@ app.use(passport.session());
 //app.use(bodyParser.json());
 
 app.use('/api/v1/products', productRouter);
-app.use('/users', userRouter)
+app.use('/api/v1/users', userRouter)
 app.use('/api/v1/orders', orderRouter);
-
-// 나중에 userRouter로 합치게 될 것 같아서 일단 path만 /users로 변경해놨습니다..!
-app.use('/users', loginRouter); 
+app.use('/api/v1/users', loginRouter); 
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs))
 
