@@ -17,6 +17,23 @@ router.post('/login', passport.authenticate('local'), asyncHandler(async (req, r
   });
 }));
 
+const KakaoStrategy = require('passport-kakao').Strategy;
+
+passport.use('kakao', new KakaoStrategy({
+  clientID: '카카오에서 발급받은 REST API Key 넣기',
+  callbackURL: '/auth/kakao/callback',     // 위에서 설정한 Redirect URI
+}, async (accessToken, refreshToken, profile, done) => {
+  //console.log(profile);
+  console.log(accessToken);
+  console.log(refreshToken);
+}))
+
+router.get('kakao',passport.authenticate('kakao'));
+router.get('/kakao/callback',passport.authenticate('kakao',{
+    failureRedirect : '/'
+}),(req,res)=>{
+    res.redirect('/');
+});
 // 로그아웃
 router.get('/logout', (req, res) => {
   req.logout((err) => {
