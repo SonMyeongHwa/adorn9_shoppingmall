@@ -14,8 +14,8 @@ const UserSchema = new Schema({
     type:String,
     required:true
    }, //유저 이름
-  phone: {
-    type:Number,
+  phoneNumber: {
+    type:String,
     required:true
    }, // 유저 전화번호
   address: {
@@ -28,6 +28,10 @@ const UserSchema = new Schema({
     type:Date,
     default:new Date().toDateString()
    },//가입일자
+   admin:{
+    type:Boolean,
+    default:false
+   },//관리자 여부. 기본값은 그냥 회원
   orderList: [{ type: Schema.Types.ObjectId, ref: "Order" }], //유저 주문내역
 })
 
